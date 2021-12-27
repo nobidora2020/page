@@ -1,0 +1,56 @@
+# 2020-09-13 08:58:57
+
+# Tab
+
+## Tab move
+map e nextTab
+map o nextTab
+map w previousTab
+map i previousTab
+
+## Tab remove
+map ; removeTab
+map a removeTab
+map qa restoreTab
+map : restoreTab
+
+## Tab visit
+map z visitPreviousTab
+map @ visitPreviousTab
+
+
+# Scroll
+map d scrollUp
+map f scrollDown
+
+map s scrollFullPageUp
+map l scrollFullPageUp
+map v scrollPageDown
+map n scrollPageDown
+
+map h scrollFullPageDown
+map g scrollFullPageDown
+
+map yy scrollToTop
+map xx scrollToTop
+map yu scrollToBottom
+map xz scrollToBottom
+
+# Link
+
+map p LinkHints.activateMode
+map u LinkHints.activateModeToOpenInNewTab
+map 8 LinkHints.activateMode
+map yi focusInput
+map 0 enterInsertMode
+
+# Go and Back
+map m goBack
+map c goBack 
+map V goForward
+
+map qq goBack
+map qw goForward
+
+# focus
+map yh focusInput
