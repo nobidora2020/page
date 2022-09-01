@@ -15,8 +15,9 @@
     </form>
  
     <label for="resultForm">取得した値: </label>
-    <input type="text" id="resultForm">
+    <input type="text" id="resultForm" class="btn">
 
+    <br>
 
     <input id="copyTarget" type="text" value="コピー対象の文言" readonly>
     <button onclick="copyToClipboard()">Copy text</button>
@@ -35,8 +36,7 @@ button.addEventListener("click", function(e) {
  
     // 入力フォームの値を取得
     var textForm = document.getElementById("textForm").value;
- 
-    // var result = textForm.replace( '\\', '/' );    
+    // 正規表現の置換  
     var result = textForm.replace(/\\/g, '/');
     result = result.replace(/u002F/g, "");
 
@@ -58,9 +58,24 @@ function copyToClipboard() {
     document.execCommand("Copy");
 
     // コピーをお知らせする
-    alert("コピーできました！ : " + copyTarget.value);
+    // alert("コピーできました！ : " + copyTarget.value);
 }
  
 </script>
+
+
+<style>
+button {
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 4em;
+}
+input {
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 4em;
+    width: 15em;
+}
+</style>
  
 </html>
