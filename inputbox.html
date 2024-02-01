@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
- 
+
 <head>
     <meta charset="UTF-8">
     <title>フォームに入力された数値の取得</title>
 </head>
- 
+
 <body>
     <form>
         <label for="textForm">値: </label>
         <input type="text" id="textForm">
-         
+
         <button id="button">取得する</button>
     </form>
- 
+
     <label for="resultForm">取得した値: </label>
     <input type="text" id="resultForm" class="btn">
 
@@ -23,44 +23,44 @@
     <button onclick="copyToClipboard()">Copy text</button>
 
 </body>
- 
+
 <script>
- 
-// ボタンの要素を取得
-var button = document.getElementById("button");
- 
-// ボタンをクリックした時の処理
-button.addEventListener("click", function(e) {
- 
-    e.preventDefault();
- 
-    // 入力フォームの値を取得
-    var textForm = document.getElementById("textForm").value;
-    // 正規表現の置換  
-    var result = textForm.replace(/\\/g, '/');
-    result = result.replace(/u002F/g, "");
 
-    // 取得した値を別の入力フォームに表示
-    var resultForm = document.getElementById("resultForm");
-    resultForm.value = result;
-    copyTarget.value = result;
-});
+    // ボタンの要素を取得
+    var button = document.getElementById("button");
+
+    // ボタンをクリックした時の処理
+    button.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        // 入力フォームの値を取得
+        var textForm = document.getElementById("textForm").value;
+        // 正規表現の置換  
+        var result = textForm.replace(/\\/g, '/');
+        result = result.replace(/u002F/g, "");
+
+        // 取得した値を別の入力フォームに表示
+        var resultForm = document.getElementById("resultForm");
+        resultForm.value = result;
+        copyTarget.value = result;
+    });
 
 
-function copyToClipboard() {
-    // コピー対象をJavaScript上で変数として定義する
-    var copyTarget = document.getElementById("copyTarget");
+    function copyToClipboard() {
+        // コピー対象をJavaScript上で変数として定義する
+        var copyTarget = document.getElementById("copyTarget");
 
-    // コピー対象のテキストを選択する
-    copyTarget.select();
+        // コピー対象のテキストを選択する
+        copyTarget.select();
 
-    // 選択しているテキストをクリップボードにコピーする
-    document.execCommand("Copy");
+        // 選択しているテキストをクリップボードにコピーする
+        document.execCommand("Copy");
 
-    // コピーをお知らせする
-    // alert("コピーできました！ : " + copyTarget.value);
-}
- 
+        // コピーをお知らせする
+        // alert("コピーできました！ : " + copyTarget.value);
+    }
+
 </script>
 
 
@@ -68,17 +68,19 @@ function copyToClipboard() {
     body {
         font-size: 200%;
     }
-button {
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 80px;
-}
-input {
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 80px;
-    width: 400px;
-}
+
+    button {
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 80px;
+    }
+
+    input {
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 80px;
+        width: 400px;
+    }
 </style>
- 
+
 </html>
