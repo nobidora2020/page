@@ -1,20 +1,16 @@
-<style type="text/css">
-    <!--
+<style type="text/css">    
     div.blocka {
         float: left;
         width: 25%;
     }
-
     div.blockb {
         float: left;
         width: 25%;
     }
-
     div.blockc {
         /*         float: right; */
         /*         width: 25%; */
     }
-
     body {
         /*   margin: 10px 25px 5px 20px;  */
         padding: 10px 10px 5px 20px;
@@ -24,19 +20,16 @@
         /* background-color:#DBDBDB;  */
         /* color: #cccccc; */
     }
-
     html {
         background-color: #15202b;
     }
-
     a:visited {
         color: #e7e8e9;
     }
-
     a:link {
         color: gray;
     }
-    -->
+    
 </style>
 
 <head>
@@ -44,37 +37,42 @@
 </head>
 
 <h1>
+    <script>    
+    function openLinkInSameTab(event, url) {
+        // リンクのデフォルトの動作をキャンセル
+        event.preventDefault();
+        // クリックしたリンクのhref属性を取得
+        var linkHref = url || event.target.href;
+        // 現在のタブでリンク先を開く
+        window.location.href = linkHref;
+    }
 
-    
-    
-
-    <script>
-    document.write("<p>JavaScript テスト</p>");
-    </script>
-
-    <div class="blocka">
-        
-        <a href="https://yahoo.co.jp" target="_top" onclick="return false;">Yahoo</a></br>
-        <a href="https://yahoo.co.jp" target="_top" onclick="return false;">Yahoo</a></br>
-        <a href="https://yahoo.co.jp" target="_top">Yahoo</a></br>
-        <a href="https://yahoo.co.jp">Yahoo</a></br>
-        <a href="https://yahoo.co.jp"  onclick="preventFocus(event)">Yahoo</a></br>
-    
-
-        <button type="button" onclick="ShowAlart()">ここをクリック </button>
-
-
-        <script>
-        function preventFocus(event) {
+    function preventFocus(event) {
             event.preventDefault();
             window.location.href = event.target.href; 
         }
-        function ShowAlart() {
-            alert("Hello world!!");
-        }
+        function ShowAlart() { alert("Hello world!!"); }
 
-        </script>
+    </script>
 
+
+    <div class="blocka">
+        
+        <div id="content" tabindex="0">                        
+            <div>it here.</div>
+        </div>
+
+        <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク</a>
+                
+        <a href="https://nobidora2020.github.io/page/" onclick="linkClickHandler(event)" target="_top">リンク</a>
+        
+        <a href="https://yahoo.co.jp" target="_top" onclick="return false;">onclick="return</a></br>
+        <a href="https://yahoo.co.jp" target="_top">target="_top</a></br>
+        <a href="https://yahoo.co.jp">Yahoo</a></br>
+        <a href="https://yahoo.co.jp" onclick="preventFocus(event)">preventFocus</a></br>
+
+        <button type="button" onclick="ShowAlart()">ここをクリック </button>
+        <a href="https://yahoo.co.jp">Yahoo2</a></br>
         
         <a href="https://twitter.com/home" target="_top">Twitter</a></br>
         <a href="https://youtube.com" target="_top">Youtube</a></br>
