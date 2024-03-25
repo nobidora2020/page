@@ -32,31 +32,6 @@
     
 </style>
 
-
-<style>
-    /* CSS for the modal */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    }
-
-    /* Modal Content */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto; /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
-    }
-</style>
-
 <head>
     <title>LINK_PAGE</title>
 </head>
@@ -67,7 +42,6 @@
         event.preventDefault(); // リンクのデフォルトの動作をキャンセル
         var linkHref = url || event.target.href; // クリックしたリンクのhref属性を取得                
         var newWindow = window.open(linkHref, '_parent'); // 現在のタブでリンク先を開く
-
         // リンク先のページが読み込まれた後
         newWindow.onload = function() {
             newWindow.blur(); // 新しいウィンドウのフォーカスを解除
@@ -79,37 +53,9 @@
     </script>
 
     <div class="blocka">
-        <button id="myBtn">Open Message Box</button>
 
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <p>Hello! I will close in 3 seconds.</p>
-          </div>
-        </div>
-        
-        <button type="button" onclick="ShowAlart()">ここをクリック </button>  <!-- ←bodyに記述 -->
-
-        <script>        
-            function ShowAlart() { 
-                alert("Hello world!!"); 
-                // window.location.href = "https://www.yahoo.co.jp/";
-                newWindow = window.open("https://www.yahoo.co.jp/", '_parent')
-            } 
-
-            var btn = document.getElementById("myBtn");
-            var modal = document.getElementById("myModal");            
-            btn.onclick = function() {
-              modal.style.display = "block";                    
-              setTimeout(function() {
-                modal.style.display = "none";            
-                window.top.location.href = "https://www.yahoo.co.jp/";            
-              }, 2000); 
-            };            
-        </script>
-            
             
         <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク2</a>  
-
         <a href="https://yahoo.co.jp" target="_top" onclick="return false;">onclick="return</a></br>
         <a href="https://yahoo.co.jp" target="_top">target="_top</a></br>
         <a href="https://yahoo.co.jp">Yahoo</a></br>
