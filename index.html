@@ -56,7 +56,7 @@
             };
         }
 
-        window.onload = function () {
+        window.onload = function () {                
             // ページ全体のクリックイベントを処理する
             document.body.onclick = function (event) {
                 // クリックされた要素がリンクであるかどうかをチェック
@@ -68,13 +68,10 @@
                     var currentURL = window.location.href;
                     var specifiedURL = "https://nobidora2020.github.io/page/";
                                 
-                    if (currentURL !== specifiedURL) {
-                        // var currentTitle = document.title;
-                        // alert("現在のタイトルは：" + currentTitle);
-
+                    if (currentURL !== specifiedURL) {                        
                         if (window.parent !== window) {
                             // 親フレームが存在する場合の処理
-                            alert("親フレームが存在します。");
+                            alert("親フレーム");
                             window.top.location.href = "https://nobidora2020.github.io/page/"; 
                         } else {
                             
