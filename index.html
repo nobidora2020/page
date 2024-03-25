@@ -65,12 +65,11 @@
                     return;
                 } else {                    
                     var currentURL = window.location.href;
-                    var specifiedURL = "https://nobidora2020.github.io/page/";                    
-                                        
+                    var specifiedURL = "https://nobidora2020.github.io/page/";                                        
                     if (window.parent !== window) {
                         // 親フレームが存在する場合の処理                        
-                        window.top.location.href = "https://nobidora2020.github.io/page/"; 
-                    }                                        
+                        window.top.location.href = specifiedURL; 
+                    }                     
                 }                
             }
         };
