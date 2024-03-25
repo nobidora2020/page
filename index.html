@@ -32,46 +32,93 @@
     
 </style>
 
+
+<style>
+    /* CSS for the modal */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+</style>
+
 <head>
     <title>LINK_PAGE</title>
 </head>
 
 <h1>
-    <script>    
-    function openLinkInSameTab(event, url) {
-        // リンクのデフォルトの動作をキャンセル
-        event.preventDefault();
-        // クリックしたリンクのhref属性を取得
-        var linkHref = url || event.target.href;
-        // 現在のタブでリンク先を開く
-        window.location.href = linkHref;
-    }
+    <script> 
+    function openLinkInSameTab(event, url) {        
+        event.preventDefault(); // リンクのデフォルトの動作をキャンセル
+        var linkHref = url || event.target.href; // クリックしたリンクのhref属性を取得                
+        var newWindow = window.open(linkHref, '_parent'); // 現在のタブでリンク先を開く
 
-    function preventFocus(event) {
-            event.preventDefault();
+        // リンク先のページが読み込まれた後
+        newWindow.onload = function() {
+            newWindow.blur(); // 新しいウィンドウのフォーカスを解除
+            window.focus(); // 元のウィンドウにフォーカスを移動               
             window.location.href = event.target.href; 
-        }
-        function ShowAlart() { alert("Hello world!!"); }
-
+            newWindow.document.body.focus(); //リンク先のbodyにフォーカス
+        };
+    }  
     </script>
 
-
     <div class="blocka">
-        
-        <div id="content" tabindex="0">                        
-            <div>it here.</div>
+
+        <button id="myBtn">Open Message Box</button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <p>Hello! I will close in 3 seconds.</p>
+          </div>
         </div>
 
-        <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク</a>
-                
-        <a href="https://nobidora2020.github.io/page/" onclick="linkClickHandler(event)" target="_top">リンク</a>
+        <button type="button" onclick="ShowAlart()">ここをクリック </button>  <!-- ←bodyに記述 -->
         
+        <script>        
+            function ShowAlart() { 
+                alert("Hello world!!"); 
+                // window.location.href = "https://www.yahoo.co.jp/";
+                newWindow = window.open("https://www.yahoo.co.jp/", '_parent')
+            }  
+
+            // Get the button and the modal
+            var btn = document.getElementById("myBtn");
+            var modal = document.getElementById("myModal");            
+
+            // When the button is clicked, display the modal and start the timer to close it
+            btn.onclick = function() {
+              modal.style.display = "block";              
+      
+              setTimeout(function() {
+                modal.style.display = "none";
+                // window.location.href = "https://www.yahoo.co.jp/";
+                window.top.location.href = "https://www.yahoo.co.jp/";
+              }, 2000); // 5000 milliseconds = 5 seconds
+            };
+            </script>
+            
+            
+        <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク2</a>  
+
         <a href="https://yahoo.co.jp" target="_top" onclick="return false;">onclick="return</a></br>
         <a href="https://yahoo.co.jp" target="_top">target="_top</a></br>
         <a href="https://yahoo.co.jp">Yahoo</a></br>
-        <a href="https://yahoo.co.jp" onclick="preventFocus(event)">preventFocus</a></br>
-
-        <button type="button" onclick="ShowAlart()">ここをクリック </button>
+        
         <a href="https://yahoo.co.jp">Yahoo2</a></br>
         
         <a href="https://twitter.com/home" target="_top">Twitter</a></br>
@@ -85,9 +132,8 @@
         <a href="https://www.itmedia.co.jp/" target="_top">IT Media</a></br>
         <a href="https://www.google.com/search?q=robot+news&gl=us&hl=en&pws=0&sxsrf=AOaemvL1BXesC8VRdUSC-3XO6OsyQevasQ%3A1636959234759&source=hp&ei=AgSSYaeVK9KV-wSYo5DQBQ&iflsig=ALs-wAMAAAAAYZISEquZmIaNH6-ePrRn38uq_NO-tcCD&oq=robot+n&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQkQIyBQgAEMsBMgcIABAKEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgUILhDLATIFCAAQywEyBQgAEIAEMgUILhDLAToHCCMQ6gIQJzoECCMQJzoLCC4QgAQQxwEQ0QM6BQguEIAEOg0IABCABBCxAxCDARAEOgoIABCABBCxAxAEOgcIABCABBAEOgYIABAEEAM6EwgAEIAEELEDEIMBELEDEIMBEAQ6BAgAEEM6BAguEEM6CwguEIAEEMcBEKMCOgoILhDHARDRAxBDOgsILhCABBDHARCvAToLCC4QxwEQrwEQywE6CwguEMcBENEDEMsBUL8HWNg3YJhDaAVwAHgAgAGAAogB5wqSAQUzLjcuMZgBAKABAbABCg&sclient=gws-wiz" target="_top">RobotNews</a></br>
         </br>
-
-
     </div>
+
     <div class="blockb">
         <a href="https://trello.com/b/nNf5ivOK/todo" target="_top">Trello</a></br>
         <a href="https://karapaia.com/" target="_top">Karapaia</a></br>
