@@ -79,38 +79,33 @@
     </script>
 
     <div class="blocka">
-
         <button id="myBtn">Open Message Box</button>
+
         <div id="myModal" class="modal">
           <div class="modal-content">
             <p>Hello! I will close in 3 seconds.</p>
           </div>
         </div>
-
-        <button type="button" onclick="ShowAlart()">ここをクリック </button>  <!-- ←bodyに記述 -->
         
+        <button type="button" onclick="ShowAlart()">ここをクリック </button>  <!-- ←bodyに記述 -->
+
         <script>        
             function ShowAlart() { 
                 alert("Hello world!!"); 
                 // window.location.href = "https://www.yahoo.co.jp/";
                 newWindow = window.open("https://www.yahoo.co.jp/", '_parent')
-            }  
+            } 
 
-            // Get the button and the modal
             var btn = document.getElementById("myBtn");
             var modal = document.getElementById("myModal");            
-
-            // When the button is clicked, display the modal and start the timer to close it
             btn.onclick = function() {
-              modal.style.display = "block";              
-      
+              modal.style.display = "block";                    
               setTimeout(function() {
-                modal.style.display = "none";
-                // window.location.href = "https://www.yahoo.co.jp/";
-                window.top.location.href = "https://www.yahoo.co.jp/";
-              }, 2000); // 5000 milliseconds = 5 seconds
-            };
-            </script>
+                modal.style.display = "none";            
+                window.top.location.href = "https://www.yahoo.co.jp/";            
+              }, 2000); 
+            };            
+        </script>
             
             
         <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク2</a>  
