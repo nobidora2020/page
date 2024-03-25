@@ -1,16 +1,19 @@
-<style type="text/css">    
+<style type="text/css">
     div.blocka {
         float: left;
         width: 25%;
     }
+
     div.blockb {
         float: left;
         width: 25%;
     }
+
     div.blockc {
         /*         float: right; */
         /*         width: 25%; */
     }
+
     body {
         /*   margin: 10px 25px 5px 20px;  */
         padding: 10px 10px 5px 20px;
@@ -20,16 +23,18 @@
         /* background-color:#DBDBDB;  */
         /* color: #cccccc; */
     }
+
     html {
         background-color: #15202b;
     }
+
     a:visited {
         color: #e7e8e9;
     }
+
     a:link {
         color: gray;
     }
-    
 </style>
 
 <head>
@@ -37,60 +42,59 @@
 </head>
 
 <h1>
-    <script> 
-    function openLinkInSameTab(event, url) {        
-        event.preventDefault(); // リンクのデフォルトの動作をキャンセル
-        var linkHref = url || event.target.href; // クリックしたリンクのhref属性を取得                
-        var newWindow = window.open(linkHref, '_parent'); // 現在のタブでリンク先を開く
-        // リンク先のページが読み込まれた後
-        newWindow.onload = function() {
-            newWindow.blur(); // 新しいウィンドウのフォーカスを解除
-            window.focus(); // 元のウィンドウにフォーカスを移動               
-            window.location.href = event.target.href; 
-            newWindow.document.body.focus(); //リンク先のbodyにフォーカス
-        };
-    }  
-    window.onload = function() {
-        // ページ全体のクリックイベントを処理する
-        document.body.onclick = function(event) {
-            // クリックされた要素がリンクであるかどうかをチェック
-            if (event.target.tagName.toLowerCase() === 'a') {
-                // リンクをクリックした場合は何もしない（通常の動作を行う）
-                return;
-            } else {                
-                // window.top.location.href = "https://nobidora2020.github.io/page/"; // 移動したいリンク先を指定
+    <script>
+        function openLinkInSameTab(event, url) {
+            event.preventDefault(); // リンクのデフォルトの動作をキャンセル
+            var linkHref = url || event.target.href; // クリックしたリンクのhref属性を取得                
+            var newWindow = window.open(linkHref, '_parent'); // 現在のタブでリンク先を開く
+            // リンク先のページが読み込まれた後
+            newWindow.onload = function () {
+                newWindow.blur(); // 新しいウィンドウのフォーカスを解除
+                window.focus(); // 元のウィンドウにフォーカスを移動               
+                window.location.href = event.target.href;
+                newWindow.document.body.focus(); //リンク先のbodyにフォーカス
+            };
+        }
+        window.onload = function () {
+            // ページ全体のクリックイベントを処理する
+            document.body.onclick = function (event) {
+                // クリックされた要素がリンクであるかどうかをチェック
+                if (event.target.tagName.toLowerCase() === 'a') {
+                    // リンクをクリックした場合は何もしない（通常の動作を行う）
+                    return;
+                } else {
+                    // 現在のURLが指定されたURL以外の場合のみ別のリンクに移動する
+                    var currentURL = window.location.href;
+                    var specifiedURL = "https://nobidora2020.github.io/page/";
 
-                // 現在のURLが指定されたURL以外の場合のみ別のリンクに移動する
-                var currentURL = window.location.href;
-                var specifiedURL = "https://nobidora2020.github.io/page/";
-
-                if (currentURL !== specifiedURL) {
-                    window.top.location.href = "https://nobidora2020.github.io/page/"; // 移動したいリンク先を指定
+                    if (currentURL !== specifiedURL) {
+                        window.top.location.href = "https://nobidora2020.github.io/page/"; // 移動したいリンク先を指定
+                    }
                 }
-            }
+            };
         };
-    };
     </script>
 
     <div class="blocka">
-        
-<!--         
+        <!--         
         <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク2</a>  
         <a href="https://yahoo.co.jp" target="_top" onclick="return false;">onclick="return</a></br>
         <a href="https://yahoo.co.jp" target="_top">target="_top</a></br>
  -->
- 
-        <a href="https://yahoo.co.jp" target="_top">Yahoo</a></br>        
+
+        <a href="https://yahoo.co.jp" target="_top">Yahoo</a></br>
         <a href="https://twitter.com/home" target="_top">Twitter</a></br>
         <a href="https://youtube.com" target="_top">Youtube</a></br>
         <a href="https://qiita.com/" target="_top">Qitta</a></br>
         <a href="https://jp.quora.com/" target="_top">Quora</a></br>
         <a href="https://ja.wikipedia.org/wiki" target="_top">Wiki</a></br>
-        <a href="https://trends.google.co.jp/trends/trendingsearches/realtime?geo=JP&category=all" target="_top">Trend</a></br>
+        <a href="https://trends.google.co.jp/trends/trendingsearches/realtime?geo=JP&category=all"
+            target="_top">Trend</a></br>
         <a href="https://wa3.i-3-i.info/" target="_top">分かりそう辞典</a></br>
         <a href="https://teratail.com/" target="_top">テラテイル</a></br>
         <a href="https://www.itmedia.co.jp/" target="_top">IT Media</a></br>
-        <a href="https://www.google.com/search?q=robot+news&gl=us&hl=en&pws=0&sxsrf=AOaemvL1BXesC8VRdUSC-3XO6OsyQevasQ%3A1636959234759&source=hp&ei=AgSSYaeVK9KV-wSYo5DQBQ&iflsig=ALs-wAMAAAAAYZISEquZmIaNH6-ePrRn38uq_NO-tcCD&oq=robot+n&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQkQIyBQgAEMsBMgcIABAKEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgUILhDLATIFCAAQywEyBQgAEIAEMgUILhDLAToHCCMQ6gIQJzoECCMQJzoLCC4QgAQQxwEQ0QM6BQguEIAEOg0IABCABBCxAxCDARAEOgoIABCABBCxAxAEOgcIABCABBAEOgYIABAEEAM6EwgAEIAEELEDEIMBELEDEIMBEAQ6BAgAEEM6BAguEEM6CwguEIAEEMcBEKMCOgoILhDHARDRAxBDOgsILhCABBDHARCvAToLCC4QxwEQrwEQywE6CwguEMcBENEDEMsBUL8HWNg3YJhDaAVwAHgAgAGAAogB5wqSAQUzLjcuMZgBAKABAbABCg&sclient=gws-wiz" target="_top">RobotNews</a></br>
+        <a href="https://www.google.com/search?q=robot+news&gl=us&hl=en&pws=0&sxsrf=AOaemvL1BXesC8VRdUSC-3XO6OsyQevasQ%3A1636959234759&source=hp&ei=AgSSYaeVK9KV-wSYo5DQBQ&iflsig=ALs-wAMAAAAAYZISEquZmIaNH6-ePrRn38uq_NO-tcCD&oq=robot+n&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQkQIyBQgAEMsBMgcIABAKEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgUILhDLATIFCAAQywEyBQgAEIAEMgUILhDLAToHCCMQ6gIQJzoECCMQJzoLCC4QgAQQxwEQ0QM6BQguEIAEOg0IABCABBCxAxCDARAEOgoIABCABBCxAxAEOgcIABCABBAEOgYIABAEEAM6EwgAEIAEELEDEIMBELEDEIMBEAQ6BAgAEEM6BAguEEM6CwguEIAEEMcBEKMCOgoILhDHARDRAxBDOgsILhCABBDHARCvAToLCC4QxwEQrwEQywE6CwguEMcBENEDEMsBUL8HWNg3YJhDaAVwAHgAgAGAAogB5wqSAQUzLjcuMZgBAKABAbABCg&sclient=gws-wiz"
+            target="_top">RobotNews</a></br>
         </br>
     </div>
 
@@ -99,13 +103,12 @@
         <a href="https://karapaia.com/" target="_top">Karapaia</a></br>
         <a href="https://gigazine.net/" target="_top">ギガジン</a></br>
         <a href="https://news.google.com/topstories?hl=ja&gl=JP&ceid=JP%3Aja" target="_top">G News</a></br>
-        <a href="https://www.msn.com/ja-jp/news/techandscience?cvid=4ac8bc0340354b1a8950e51070c2db18" target="_top">MS News</a></br>
+        <a href="https://www.msn.com/ja-jp/news/techandscience?cvid=4ac8bc0340354b1a8950e51070c2db18"target="_top">MS News</a></br>
         <a href="https://tweetdeck.twitter.com/" target="_top">Tweet</a></br>
         <a href="https://www.reddit.com/r/programming/" target="_top">Reddit</a></br>
         <a href="https://b.hatena.ne.jp/hotentry/it" target="_top">はてな</a></br>
         <a href="https://techcrunch.com/" target="_top">TechCrunch</a></br>
         <a href="https://dev.to/" target="_top">dev.to</a></br>
-
         <a href="https://www.notion.so" target="_top">Notion</a></br>
         <a href="https://feedly.com/" target="_top">Feedly</a></br>
 
