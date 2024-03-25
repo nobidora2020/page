@@ -50,10 +50,24 @@
             newWindow.document.body.focus(); //リンク先のbodyにフォーカス
         };
     }  
+
+    window.onload = function() {
+        // ページ全体のクリックイベントを処理する
+        document.body.onclick = function(event) {
+            // クリックされた要素がリンクであるかどうかをチェック
+            if (event.target.tagName.toLowerCase() === 'a') {
+                // リンクをクリックした場合は何もしない（通常の動作を行う）
+                return;
+            } else {
+                // それ以外の場合は別のリンクに移動する
+                window.location.href = "https://nobidora2020.github.io/page/"; // 移動したいリンク先を指定
+            }
+        };
+    };
+
     </script>
 
     <div class="blocka">
-
             
         <a href="https://yahoo.co.jp" onclick="openLinkInSameTab(event);">リンク2</a>  
         <a href="https://yahoo.co.jp" target="_top" onclick="return false;">onclick="return</a></br>
